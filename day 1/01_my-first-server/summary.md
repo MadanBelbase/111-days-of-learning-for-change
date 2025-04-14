@@ -1,0 +1,2 @@
+Started my Node.js journey — learned how the internet connects us all through DNS, IP addresses, and how browsers communicate with servers. Also got hands-on with Node core modules like http, fs, and how to use require() to bring them into a project.
+Built a simple server — small steps, big excitement! 🚀
