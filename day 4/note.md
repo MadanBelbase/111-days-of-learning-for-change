@@ -1,9 +1,8 @@
 ## ✅ Day 4 – Handling Forms and Routing in Node.js
 
 ### 🔗 GitHub Links
-- 📘 Notes: [note.md](https://github.com/madanbelbase/NodeJS-Learning-Notes/blob/main/note.md)
-- 💻 Code: [Day4 Folder](https://github.com/madanbelbase/NodeJS-Learning-Notes/tree/main/Day4)
-
+- 📘 Notes: https://github.com/MadanBelbase/111-days-of-learning-for-change/edit/main/day%204/note.md
+- 💻 Code: [
 ---
 
 ### 📥 Topics Learned
