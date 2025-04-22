@@ -1,0 +1,63 @@
+<%- include('partials/head') %>
+
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+
+    }
+
+    main {
+        padding: 2rem;
+    }
+
+    h1 {
+        color: #ff69b4; /* hot pink */
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        padding: 0;
+        list-style: none;
+    }
+
+    .home-card {
+        background-color: #ffe4ec;
+        border-radius: 12px;
+        padding: 1rem;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(255, 105, 180, 0.2);
+        transition: transform 0.2s ease-in-out;
+    }
+
+    .home-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .home-card h2 {
+        color: #ff1493; /* deeper pink */
+        margin: 0;
+        font-size: 1.5rem;
+    }
+</style>
+
+<body> 
+    <%- include('partials/header') %>
+    <main>
+        <h1>Here are the registered homes</h1>
+        <ul class="grid-container">
+            <% registeredHome.forEach(function(home) { %>
+                <li class="home-card">
+                    <h2><%= home.housename %></h2>
+                </li>
+            <% }) %>
+        </ul>
+    </main>
+</body>
+</html>
+

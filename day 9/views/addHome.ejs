@@ -1,0 +1,77 @@
+<%- include('partials/head') %>
+
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 90vh;
+    }
+
+    form {
+        background-color: #ffe4ec;
+        padding: 2rem 3rem;
+        border-radius: 16px;
+        box-shadow: 0 8px 16px rgba(255, 105, 180, 0.2);
+        width: 100%;
+        max-width: 400px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: #ff1493;
+        font-weight: bold;
+        font-size: 1.1rem;
+    }
+
+    input[type="text"] {
+        width: 100%;
+        padding: 0.7rem;
+        border: 2px solid #ff69b4;
+        border-radius: 8px;
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+        outline: none;
+        transition: border-color 0.3s ease;
+    }
+
+    input[type="text"]:focus {
+        border-color: #ff1493;
+    }
+
+    button {
+        background-color: #ff69b4;
+        color: white;
+        border: none;
+        padding: 0.8rem 1.5rem;
+        border-radius: 10px;
+        font-size: 1rem;
+        cursor: pointer;
+        width: 100%;
+        transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+        background-color: #ff1493;
+    }
+</style>
+
+<body>
+    <%- include('partials/header') %>
+    <main>
+        <form action="/host/add-home" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="housename"
+                   placeholder="Enter the name of your house" required>
+            <button type="submit">Submit</button>
+        </form>
+    </main>
+</body>
+</html>
