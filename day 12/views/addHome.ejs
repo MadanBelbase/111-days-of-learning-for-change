@@ -1,0 +1,120 @@
+<%- include('partials/head') %>
+
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+        min-height: 100vh;
+    }
+
+    form {
+        background-color: #ffe4ec;
+        padding: 2rem 2.5rem;
+        border-radius: 16px;
+        box-shadow: 0 8px 16px rgba(255, 105, 180, 0.2);
+        max-width: 600px;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 1rem 1.5rem;
+    }
+
+    h2 {
+        grid-column: 1 / -1;
+        text-align: center;
+        color: #ff1493;
+        margin-bottom: 1rem;
+    }
+
+    label {
+        font-weight: 600;
+        color: #ff1493;
+        align-self: center;
+        font-size: 1rem;
+    }
+
+    input[type="text"] {
+        padding: 0.6rem;
+        border: 2px solid #ff69b4;
+        border-radius: 8px;
+        font-size: 1rem;
+        outline: none;
+        width: 100%;
+        transition: border-color 0.3s ease;
+    }
+
+    input[type="text"]:focus {
+        border-color: #ff1493;
+    }
+
+    button {
+        grid-column: 1 / -1;
+        margin-top: 1rem;
+        background-color: #ff69b4;
+        color: white;
+        border: none;
+        padding: 0.8rem;
+        border-radius: 10px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+        background-color: #ff1493;
+    }
+
+    @media (max-width: 600px) {
+        form {
+            grid-template-columns: 1fr;
+        }
+
+        label {
+            margin-bottom: 0.2rem;
+        }
+    }
+</style>
+
+<body>
+    <%- include('partials/header') %>
+    <main>
+        <form action="/host/add-home" method="POST">
+            <h2>Add Your Home</h2>
+            
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="housename"
+                   placeholder="Enter the name of your house" required>
+            
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location"
+                   placeholder="Enter the location" required>
+            
+            <label for="price">Price:</label>
+            <input type="text" id="price" name="price"
+                   placeholder="Enter the price" required>
+            
+            <label for="image">Image URL:</label>
+            <input type="text" id="image" name="image"
+                   placeholder="Enter the image URL" required>
+            
+            <label for="rating">Rating:</label>
+            <input type="text" id="rating" name="rating"
+                   placeholder="Enter the rating" required>
+            
+            <label for="contact">Contact:</label>
+            <input type="text" id="contact" name="contact"
+                   placeholder="Enter the contact details" required>
+            
+            <button type="submit">Submit</button>
+        </form>
+    </main>
+</body>
+</html>
