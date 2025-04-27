@@ -1,0 +1,107 @@
+<%- include('../partials/head') %>
+
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    main {
+        padding: 2rem;
+    }
+
+    h1 {
+        color: #060405;
+        text-align: center;
+        margin-bottom: 2.5rem;
+        font-size: 2rem;
+    }
+
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        list-style: none;
+        padding: 0;
+    }
+
+    .home-card {
+  
+        border-radius: 16px;
+        box-shadow: 0 6px 12px rgba(255, 105, 180, 0.15);
+        overflow: hidden;
+        transition: transform 0.3s ease;
+    }
+
+    .home-card:hover {
+        transform: scale(1.02);
+    }
+
+    .home-image {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+    }
+
+    .home-info {
+        padding: 1rem 1.2rem;
+    }
+
+    .home-info h2 {
+        color: #080507;
+        margin: 0.5rem 0;
+        font-size: 1.4rem;
+    }
+
+    .home-info p {
+        margin: 0.3rem 0;
+        font-size: 0.95rem;
+        color: #333;
+    }
+
+    .home-info .price {
+        color: #130c10;
+        font-weight: bold;
+    }
+    .home-info button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 0.8rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.home-info button:hover {
+    background-color: #ff1493;
+    transform: scale(1.05);
+}
+
+</style>
+
+<body>
+    <%- include('../partials/header') %>
+    <main>
+        <h1>Here are the registered homes</h1>
+        <ul class="grid-container">
+            <% registeredHome.forEach(function(home) { %>
+                <li class="home-card">
+                    <img src="<%= home.image %>" alt="<%= home.housename %>" class="home-image">
+                    <div class="home-info">
+                        <h2><%= home.housename %></h2>
+                        <p><strong>Location:</strong> <%= home.location %></p>
+                        <p class="price"><strong>Price:</strong> $<%= home.price %></p>
+                        <p><strong>Rating:</strong> <%= home.rating %> ⭐</p>
+                        <p><strong>Contact:</strong> <%= home.contact %></p>
+                        <button>Book Now</button>
+                    </div>
+                </li>
+            <% }) %>
+        </ul>
+    </main>
+</body>
+</html>
