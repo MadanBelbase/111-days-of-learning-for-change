@@ -1,0 +1,146 @@
+<%- include('../partials/head') %>
+<%- include('../partials/header') %>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+    body {
+        font-family: 'Inter', sans-serif;
+        background: #f0f2f5;
+        margin: 0;
+        padding: 0;
+    }
+
+    main {
+        display: flex;
+        justify-content: center;
+        padding: 3rem 1rem;
+    }
+
+    .booking-box {
+        width: 100%;
+        max-width: 1100px;
+        padding: 2rem;
+        background: #ffffff;
+        border-radius: 16px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
+    }
+
+    .booking-box h1 {
+        text-align: center;
+        font-size: 2.5rem;
+        color: #1e1e2f;
+        margin-bottom: 2.5rem;
+    }
+
+    .home-card {
+        display: flex;
+        flex-direction: row;
+        gap: 1.5rem;
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+        transition: transform 0.2s ease, box-shadow 0.3s ease;
+    }
+
+    .home-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+    }
+
+    .home-image {
+        width: 260px;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 12px;
+    }
+
+    .home-info {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .home-info h2 {
+        font-size: 1.8rem;
+        margin: 0;
+        color: #2c3e50;
+    }
+
+    .home-info p {
+        margin: 0.4rem 0;
+        color: #666;
+        font-size: 1rem;
+    }
+
+    .price {
+        font-size: 1.2rem;
+        color: #10b981;
+        font-weight: 600;
+    }
+
+    .button-group {
+        margin-top: 1rem;
+    }
+
+    .button-group form button {
+        padding: 0.75rem 1.5rem;
+        background-color: #6366f1;
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .button-group form button:hover {
+        background-color: #4f46e5;
+        transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+        .home-card {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .home-image {
+            width: 100%;
+            height: auto;
+        }
+
+        .home-info {
+            text-align: center;
+            align-items: center;
+        }
+    }
+</style>
+
+<body>
+    <main>
+        <div class="booking-box">
+            <h1>Details of  <%= home.housename %></h1>
+            <li class="home-card">
+                <img src="<%= home.image %>" alt="<%= home.housename %>" class="home-image">
+                <div class="home-info">
+                    <h2><%= home.housename %></h2>
+                    <p><strong>Location:</strong> <%= home.location %></p>
+                    <p class="price"><strong>Price:</strong> $<%= home.price %></p>
+                    <p><strong>Rating:</strong> <%= home.rating %> ⭐</p>
+                    <p><strong>Contact:</strong> <%= home.contact %></p>
+                    <div class="button-group">
+                        <%- include('../partials/favourite') %>
+                    </div>
+                </div>
+            </li>
+
+        </div>
+    </main>
+</body>
+</html>

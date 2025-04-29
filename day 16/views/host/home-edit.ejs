@@ -1,0 +1,127 @@
+<%- include('../partials/head') %>
+
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+        min-height: 100vh;
+    }
+
+    form {
+        padding: 2rem 2.5rem;
+        border-radius: 16px;
+        box-shadow: 0 8px 16px rgba(255, 105, 180, 0.2);
+        max-width: 600px;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 1rem 1.5rem;
+    }
+
+    h2 {
+        grid-column: 1 / -1;
+        text-align: center;
+        color: #000000;
+        margin-bottom: 1rem;
+    }
+
+    label {
+        font-weight: 600;
+        color: #050304;
+        align-self: center;
+        font-size: 1rem;
+    }
+
+    input[type="text"] {
+        padding: 0.6rem;
+        border: 2px solid #0d0b0c;
+        border-radius: 8px;
+        font-size: 1rem;
+        outline: none;
+        width: 100%;
+        transition: border-color 0.3s ease;
+    }
+
+    input[type="text"]:focus {
+        border-color: #ff1493;
+    }
+
+    button {
+        grid-column: 1 / -1;
+        margin-top: 1rem;
+        background-color: #3498db;
+        color: white;
+        border: none;
+        padding: 0.8rem;
+        border-radius: 10px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+        background-color: #ff1493;
+    }
+
+    @media (max-width: 600px) {
+        form {
+            grid-template-columns: 1fr;
+        }
+
+        label {
+            margin-bottom: 0.2rem;
+        }
+    }
+</style>
+
+<body>
+    <%- include('../partials/header') %>
+    <main>
+            <form action="/host/<%= editing ? 'home-edit' : 'add-home' %>" method="POST">
+
+            <h2> <%= editing ? "Edit" : "Register"  %> Your Home</h2>
+            <input type="hidden" name="homeId" value="<%= editing ? home.id : "" %>">
+            
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="housename"
+                   value ="<%= editing ? home.housename : "" %>"
+                   placeholder="Enter the name of your house" required>
+            
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location"
+                     value ="<%= editing ? home.location : "" %>"
+                   placeholder="Enter the location" required>
+            
+            <label for="price">Price:</label>
+            <input type="text" id="price" name="price"
+                     value ="<%= editing ? home.price : "" %>"
+                   placeholder="Enter the price" required>
+            
+            <label for="image">Image URL:</label>
+            <input type="text" id="image" name="image"
+                        value ="<%= editing ? home.image : "" %>"
+                   placeholder="Enter the image URL" required>
+            
+            <label for="rating">Rating:</label>
+            <input type="text" id="rating" name="rating"
+                     value ="<%= editing ? home.rating : "" %>"
+                   placeholder="Enter the rating" required>
+            
+            <label for="contact">Contact:</label>
+            <input type="text" id="contact" name="contact"
+                        value ="<%= editing ? home.contact : "" %>"
+                   placeholder="Enter the contact details" required>
+            
+            <button type="submit"><%= editing ? "Update" : "Submit"  %> Home</button>
+        </form>
+    </main>
+</body>
+</html>

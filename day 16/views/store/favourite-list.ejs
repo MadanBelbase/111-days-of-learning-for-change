@@ -1,0 +1,90 @@
+<%- include('../partials/head') %>
+<%- include('../partials/header') %>
+
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f8f9fa;
+    }
+
+    main {
+        padding: 2rem;
+    }
+
+    h1 {
+        text-align: center;
+        font-size: 2.5rem;
+        color: #2c3e50;
+        margin-bottom: 2rem;
+    }
+
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        padding: 0;
+        list-style: none;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .home-card {
+        background-color: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: transform 0.3s ease;
+    }
+
+    .home-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .home-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .home-info {
+        padding: 1.2rem;
+    }
+
+    .home-info h2 {
+        margin-top: 0;
+        color: #34495e;
+    }
+
+    .home-info p {
+        margin: 0.5rem 0;
+        color: #555;
+    }
+
+    .price {
+        color: #27ae60;
+        font-weight: bold;
+    }
+</style>
+
+<body>
+    <main>
+        <h1>Here are the registered homes</h1>
+        <ul class="grid-container">
+            <% favouriteHomes.forEach(function(home) { %>
+                <li class="home-card">
+                    <img src="<%= home.image %>" alt="<%= home.housename %>" class="home-image">
+                    <div class="home-info">
+                        <h2><%= home.housename %></h2>
+                        <p><strong>Location:</strong> <%= home.location %></p>
+                        <p class="price"><strong>Price:</strong> $<%= home.price %></p>
+                        <p><strong>Rating:</strong> <%= home.rating %> ⭐</p>
+                        <p><strong>Contact:</strong> <%= home.contact %></p>
+                    </div>
+                </li>
+            <% }) %>
+        </ul>
+    </main>
+</body>
+</html>

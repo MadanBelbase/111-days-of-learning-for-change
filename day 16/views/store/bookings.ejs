@@ -1,0 +1,55 @@
+<%- include('../partials/head') %>
+<%- include('../partials/header') %>
+
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 90vh;
+    }
+
+    .booking-box h1 {
+        font-size: 2.5rem;
+        color: #2c3e50;
+        margin-bottom: 1rem;
+    }
+
+    .booking-box p {
+        font-size: 1.2rem;
+        color: #555;
+        margin-bottom: 1.5rem;
+    }
+
+    .booking-box a {
+        display: inline-block;
+        text-decoration: none;
+        color: white;
+        background-color: #3498db;
+        padding: 0.7rem 1.5rem;
+        border-radius: 10px;
+        font-size: 1rem;
+        transition: background-color 0.3s ease;
+    }
+
+    .booking-box a:hover {
+        background-color: #2980b9;
+    }
+</style>
+
+<body>
+    <main>
+        <div class="booking-box">
+            <h1>All Bookings</h1>
+            <p>Check your registered homes and booking details here.</p>
+            <a href="/">Go to Home</a>
+        </div>
+    </main>
+</body>
+</html>
