@@ -1,0 +1,145 @@
+<%- include('../partials/head') %>
+
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f6f8;
+  }
+
+  main {
+    padding: 2rem 1.5rem;
+    max-width: 1300px;
+    margin: auto;
+  }
+
+  h1 {
+    color: #2c3e50;
+    text-align: center;
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Fixed 4 columns */
+    gap: 1.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  @media screen and (max-width: 1200px) {
+    .grid-container {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media screen and (max-width: 900px) {
+    .grid-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .grid-container {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .home-card {
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .home-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+  }
+
+  .home-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .home-info {
+    padding: 1.2rem;
+  }
+
+  .home-info h2 {
+    font-size: 1.4rem;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+  }
+
+  .home-info p {
+    font-size: 0.95rem;
+    color: #555;
+    margin: 0.3rem 0;
+  }
+
+  .price {
+    color: #e74c3c;
+    font-weight: 600;
+  }
+
+  .button-group {
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+
+  .home-info a button,
+  .home-info form button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+
+  .home-info a button:hover,
+  .home-info form button:hover {
+    background-color: #ff1493;
+    transform: scale(1.05);
+  }
+</style>
+
+<body>
+  <%- include('../partials/header') %>
+  <main>
+    <h1>Homes You’ve Listed</h1>
+    <ul class="grid-container">
+      <% registeredHome.forEach(function(home) { %>
+        <li class="home-card">
+          <img src="<%= home.image %>" alt="<%= home.housename %>" class="home-image">
+          <div class="home-info">
+            <h2><%= home.housename %></h2>
+            <p><strong>📍 Location:</strong> <%= home.location %></p>
+            <p class="price"><strong>💲 Price:</strong> $<%= home.price %></p>
+            <p><strong>⭐ Rating:</strong> <%= home.rating %> / 5</p>
+            <p><strong>📞 Contact:</strong> <%= home.contact %></p>
+            <div class="button-group">
+              <a href="/homes/<%= home._id %>"><button>View</button></a>
+              <form action="/favourite" method="post">
+                <button type="submit">Add to Favourite</button>
+                <input type="hidden" name="id" value="<%= home._id %>">
+              </form>
+            </div>
+          </div>
+        </li>
+      <% }) %>
+    </ul>
+  </main>
+</body>
+</html>

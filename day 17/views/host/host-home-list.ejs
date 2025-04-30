@@ -1,0 +1,133 @@
+<%- include('../partials/head') %>
+
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f9f9f9;
+    }
+
+    main {
+        padding: 3rem 2rem;
+    }
+
+    h1 {
+        color: #000;
+        text-align: center;
+        margin-bottom: 3rem;
+        font-size: 2.2rem;
+        font-weight: 700;
+        text-shadow: 1px 1px 2px #fff;
+    }
+
+    .grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+
+    .home-card {
+        background-color: #fff;
+        border-radius: 20px;
+        box-shadow: 0 12px 24px rgba(255, 105, 180, 0.2);
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        position: relative;
+    }
+
+    .home-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 16px 28px rgba(255, 105, 180, 0.3);
+    }
+
+    .home-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .home-info {
+        padding: 1.5rem;
+    }
+
+    .home-info h2 {
+        color: #000;
+        margin: 0.5rem 0;
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+
+    .home-info p {
+        margin: 0.4rem 0;
+        font-size: 1rem;
+        color: #444;
+    }
+
+    .price {
+        color: #000;
+        font-weight: bold;
+    }
+
+    .home-info a , form .delete-button {
+        display: inline-block;
+        background-color: #3498db;
+        color: white;
+        text-decoration: none;
+        padding: 0.6rem 1.2rem;
+        border-radius: 10px;
+        font-size: 0.95rem;
+        cursor: pointer;
+        margin-top: 1rem;
+        margin-right: 0.5rem;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .home-info a:hover {
+        background-color: #ff1493;
+        transform: scale(1.05);
+    }
+
+    .home-card::before {
+        content: "Listed";
+        position: absolute;
+        top: 10px;
+        left: -30px;
+        background-color: #ff69b4;
+        color: white;
+        padding: 4px 40px;
+        font-size: 0.75rem;
+        font-weight: bold;
+        transform: rotate(-45deg);
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    }
+</style>
+
+<body>
+    <%- include('../partials/header') %>
+    <main>
+        <h1>Homes You’ve Listed</h1>
+        <ul class="grid-container">
+            <% registeredHome.forEach(function(home) { %>
+                <li class="home-card">
+                    <img src="<%= home.image %>" alt="<%= home.housename %>" class="home-image">
+                    <div class="home-info">
+                        <h2><%= home.housename %></h2>
+                        <p><strong>📍 Location:</strong> <%= home.location %></p>
+                        <p class="price"><strong>💲 Price:</strong> $<%= home.price %></p>
+                        <p><strong>⭐ Rating:</strong> <%= home.rating %> / 5</p>
+                        <p><strong>📞 Contact:</strong> <%= home.contact %></p>
+                        <a href="/host/edit-home/<%= home._id %>?editing=true" class="edit-button">Edit</a>
+                        <form action="/host/delete-home/<%= home._id %>" method="POST" style="display: inline;">
+                            <button type="submit" class="delete-button">Delete</button> 
+                        </form>
+                    </div>
+                </li>
+            <% }) %>
+        </ul>
+    </main>
+</body>
+</html>
