@@ -1,10 +1,6 @@
 
-Today, I worked on improving a React Navbar component.
-I learned how to:
-✅ Properly structure a functional component in React
-✅ Use react-router-dom for navigation with <Link>
-✅ Build both static and dynamic navigation bars
-✅ Safely load user data from localStorage and handle logout
-✅ Handle JSX syntax and import issues like missing return or wrong useEffect usage
-This practice helped me understand real-world component structures and how authentication states affect UI rendering.
-🛠️ Tools used: React, TypeScript, Vite, CSS
+Today, I enhanced the UI of my blogging website by refining the individual blog detail page. I implemented the layout for the Like, Comment, and Share features to improve user interaction. This included:
+✅ Structuring the interaction section using React with TypeScript
+ ✅ Designing a clean and responsive layout with custom CSS
+ ✅ Adding clipboard-based sharing functionality
+ ✅ Preparing the interface for dynamic comment and like handling via the backend
