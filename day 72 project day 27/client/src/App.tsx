@@ -8,6 +8,7 @@ import SingleBlogDetails from './pages/singleBlogDetalis'; // Corrected componen
 import LoginPage from './pages/Loginpage'; 
 import Signuppage from './pages/signup';
 import Blogpage from './pages/Blogpage';
+import Profile from './pages/Profile';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/create-blog" element={<CreateBlog />} />
         <Route path="/blog-details/:id" element={<SingleBlogDetails />} />
         <Route path = "/blogs" element = {<Blogpage/> } />
+        <Route path = "/profile" element = {<Profile/>} />
       </Routes>
       <Footer />
     </div>

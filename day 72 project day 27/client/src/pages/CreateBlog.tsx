@@ -65,7 +65,7 @@ const CreateBlog: React.FC = () => {
         <div className="form-content">
           <div className="form-group">
             <label htmlFor="title" className="form-label">
-              Title*
+              Title
             </label>
             <input
               type="text"
@@ -105,7 +105,7 @@ const CreateBlog: React.FC = () => {
 
           <div className="form-group">
             <label htmlFor="content" className="form-label">
-              Content*
+              Content
             </label>
             <textarea
               id="content"
