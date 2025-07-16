@@ -70,8 +70,6 @@ export const checkBlogLiked = async (req: Request, res: Response): Promise<void>
   }
 };
 
-
-
 // Add a comment to a blog
 export const addComment = async (req: Request, res: Response): Promise<void> => {
   try {
