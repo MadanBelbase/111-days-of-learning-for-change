@@ -1,0 +1,104 @@
+# ----------------------------------------
+# Node.js & Express (Backend)
+# ----------------------------------------
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Logs
+logs/
+*.log
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Uploaded files (e.g., images)
+uploads/
+
+# MongoDB dumps/backups
+dump/
+
+# PM2 process files
+pids/
+*.pid
+*.seed
+
+# Build
+dist/
+build/
+.cache/
+.next/
+out/
+
+# ----------------------------------------
+# React (Frontend)
+# ----------------------------------------
+# Dependencies
+client/node_modules/
+
+# Build output
+client/build/
+client/.next/
+client/.cache/
+
+# Static generated files
+*.webmanifest
+*.tsbuildinfo
+
+# Testing
+coverage/
+client/coverage/
+*.lcov
+
+# Service workers
+sw.js
+sw.*.js
+
+# ----------------------------------------
+# System/Editor files
+# ----------------------------------------
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Icon?
+Desktop.ini
+
+# VSCode settings
+.vscode/
+
+# IntelliJ/IDEA
+.idea/
+
+# Others
+*.sublime-workspace
+*.sublime-project
+*.swp
+
+# Local history/metadata
+.history/
+*.orig
+
+# Compressed files
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# Debug & profiler files
+*.prof
+*.stackdump
+
+# Misc
+*.tgz
+*.log
+*.bak
+*.bak2
