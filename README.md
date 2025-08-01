@@ -41,8 +41,9 @@ Check out the `DayXX/` folders for more!
 
 Let’s learn, grow, and build — one day at a time!
 
-### 🔄 Progress Tracker:
-![Progress](https://progress-bar.dev/2/?scale=111&title=Completed&width=300)
+
 
 
 > ✨ _“Small daily improvements are the key to staggering long-term results.”_ – Atomic Habits
+>
+> 
